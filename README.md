@@ -3,7 +3,7 @@ Building a modern data warehouse with SQL Server, including ETL processes, data 
 
 🏗️ Data Engineering Warehouse Project
 
-🇩🇪 Deutsche Beschreibung
+**🇩🇪 Deutsche Beschreibung**
 
 Dieses Projekt ist eine praktische Umsetzung eines modernen Data Warehouses, das ich im Rahmen meines Lernwegs im Bereich Data Engineering entwickelt habe. Ziel ist es, den vollständigen Datenfluss von der Quelle bis zur nutzbaren Information zu zeigen – mit Fokus auf gute Strukturierung und Datenqualität.
 
@@ -47,7 +47,7 @@ Bereitstellung geschäftsrelevanter, analysierbarer Daten.
 🟡 In development – This repository is being actively developed as I build and expand the pipeline step by step.
 🟡 In Entwicklung – Dieses Repository wird laufend erweitert, während ich das Pipeline-System schrittweise aufbaue.
 
-🇬🇧 English Description
+**🇬🇧 English Description**
 
 This project is a practical implementation of a modern data warehouse, built as part of my learning journey in Data Engineering and to showcase a full pipeline in my portfolio. The goal is to demonstrate good practices in data ingestion, cleaning, transformation, and modeling using a layered architecture with clear separation of concerns.
 

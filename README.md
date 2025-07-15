@@ -47,6 +47,10 @@ Bereitstellung geschäftsrelevanter, analysierbarer Daten.
 🟡 In development – This repository is being actively developed as I build and expand the pipeline step by step.
 🟡 In Entwicklung – Dieses Repository wird laufend erweitert, während ich das Pipeline-System schrittweise aufbaue.
 
+
+
+
+
 **🇬🇧 English Description**
 
 This project is a practical implementation of a modern data warehouse, built as part of my learning journey in Data Engineering and to showcase a full pipeline in my portfolio. The goal is to demonstrate good practices in data ingestion, cleaning, transformation, and modeling using a layered architecture with clear separation of concerns.

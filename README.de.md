@@ -1,3 +1,10 @@
+# Data-Warehouse-Projekt
+
+> 📄 Dieses Dokument ist in mehreren Sprachen verfügbar:
+
+- 🇩🇪 [Deutsch](README.de.md)
+- 🇬🇧 [English](README.md)
+
 ## Projektbeschreibung
 
 Dieses Projekt implementiert ein vollständiges **SQL-basiertes Data Warehouse** mit einer modularen **Drei-Schichten-Architektur** (Bronze, Silber und Gold). Ziel ist es, rohe CRM- und ERP-Daten zu konsolidieren, zu bereinigen und in ein zuverlässiges, analysierbares Modell zu transformieren.

@@ -103,7 +103,7 @@ Dank der Schichtenstruktur ist das Data Warehouse sowohl **rückverfolgbar als a
 ## Danksagung & Quellen
 
 Dieses Projekt basiert auf dem folgenden Tutorial:  
-🎥 [Data Warehouse Project mit SQL Server | YouTube]([https://www.youtube.com/watch?v=XXXXXXXX](https://www.youtube.com/watch?v=9GVqKuTVANE&list=PLNcg_FV9n7qaUWeyUkPfiVtMbKlrfMqA8&index=1&ab_channel=DatawithBaraa))
+🎥 [Data Warehouse Project with SQL Server | YouTube](https://www.youtube.com/watch?v=9GVqKuTVANE&list=PLNcg_FV9n7qaUWeyUkPfiVtMbKlrfMqA8&index=1&ab_channel=DatawithBaraa)
 
 Ein besonderer Dank gilt dem Ersteller des Videos für die verständliche und strukturierte Erklärung der Data-Warehouse-Konzepte.
 

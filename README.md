@@ -1,3 +1,10 @@
+# Data Warehouse Project
+
+> 📄 This document is available in multiple languages:
+
+- 🇬🇧 [English](README.md)
+- 🇩🇪 [Deutsch](README.de.md)
+
 ## Project Description
 
 This project implements a complete **SQL-based Data Warehouse** with a modular **three-layer architecture** (Bronze, Silver, and Gold). Its purpose is to consolidate, clean, and model raw CRM and ERP data into a reliable and analytics-ready structure.

@@ -1,92 +1,100 @@
-# sql-data-warehause-project
-Building a modern data warehouse with SQL Server, including ETL processes, data modeling and analytics.
+# Data Warehouse Project: CRM + ERP Integration
 
-🏗️ Data Engineering Warehouse Project
+## 📌 Overview
 
-**🇩🇪 Deutsche Beschreibung**
+This project implements a full **data warehouse architecture** that integrates data from **CRM** and **ERP** systems. The architecture follows a **Bronze → Silver → Gold** layered model, providing raw storage, data cleansing, and business-ready views for analytics, reporting, and machine learning.
 
-Dieses Projekt ist eine praktische Umsetzung eines modernen Data Warehouses, das ich im Rahmen meines Lernwegs im Bereich Data Engineering entwickelt habe. Ziel ist es, den vollständigen Datenfluss von der Quelle bis zur nutzbaren Information zu zeigen – mit Fokus auf gute Strukturierung und Datenqualität.
+---
 
-📚 Projektziel
-Aufbau eines dreischichtigen Data Warehouses, basierend auf dem Prinzip der Trennung von Verantwortlichkeiten („Separation of Concerns“), mit Fokus auf Datenbereinigung, Standardisierung und geschäftsrelevante Transformationen.
+## 📐 Data Architecture
 
-🛠️ Technische Übersicht
-Das System verarbeitet Daten aus zwei unterschiedlichen Datenbanken in drei klar getrennten Schichten:
-
-🔹 Schicht 1 – Rohdaten (Staging) (Bronze)
-Direkte Übernahme der Daten in ursprünglicher Form.
-
-Keine Transformation – reine Speicherung.
-
-Dient als historische Quelle mit vollständiger Nachvollziehbarkeit.
-
-🔹 Schicht 2 – Bereinigte & Angereicherte Daten (Silver)
-Bereinigung, Standardisierung und Anreicherung der Daten.
-
-Vereinheitlichung von Spaltennamen, Formaten, Datentypen und Logik.
-
-Schafft zuverlässige, strukturierte Ausgangsdaten.
-
-🔹 Schicht 3 – Business Layer (Gold)
-Transformationen mit Fokus auf die geschäftliche Nutzung.
-
-Erstellung von Modellen und Aggregationen für Analysen.
-
-Daten sind direkt nutzbar für Berichte, BI-Tools und Entscheidungen.
-
-🎯 Lernziele
-Verständnis für den Aufbau eines Data Warehouses mit Schichten.
-
-Anwendung des Prinzips der Trennung von Verantwortlichkeiten.
-
-Praxis in Datenbereinigung, Normalisierung und Anreicherung.
-
-Bereitstellung geschäftsrelevanter, analysierbarer Daten.
-
-🚧 Project Status / Projektstatus
-🟡 In development – This repository is being actively developed as I build and expand the pipeline step by step.
-🟡 In Entwicklung – Dieses Repository wird laufend erweitert, während ich das Pipeline-System schrittweise aufbaue.
+<img width="1160" height="773" alt="High Level Architecture" src="https://github.com/user-attachments/assets/d9464894-d133-462a-a338-bfa6ee0c4a78" />
 
 
+### 🔶 Bronze Layer
+- **Purpose:** Store raw data from source systems.
+- **Object Type:** Tables
+- **Load Strategy:** `TRUNCATE + INSERT`
+- **Transformations:** ❌ None  
+- **Sources:** CSV files from CRM and ERP systems.
 
+### 🔷 Silver Layer
+- **Purpose:** Store cleaned, standardized data.
+- **Object Type:** Tables
+- **Transformations:**
+  - Data Cleansing
+  - Standardization
+  - Normalization
+  - Enrichment
+- **Load Strategy:** `TRUNCATE + INSERT`
 
+### 🟡 Gold Layer
+- **Purpose:** Present data in a ready-to-use format.
+- **Object Type:** Views (no physical load)
+- **Transformations:**
+  - Data Integration (e.g., CRM + ERP joins)
+  - Business Aggregations
+- **Data Models:** Star Schema, Flat Tables, Aggregated Views
 
-**🇬🇧 English Description**
+---
 
-This project is a practical implementation of a modern data warehouse, built as part of my learning journey in Data Engineering and to showcase a full pipeline in my portfolio. The goal is to demonstrate good practices in data ingestion, cleaning, transformation, and modeling using a layered architecture with clear separation of concerns.
+## 🔄 Integration Model
 
-📚 Project Goal
-To build a three-layer Data Warehouse, based on the principle of Separation of Concerns, with a focus on data quality, standardization, and business-ready transformations.
+<img width="1068" height="712" alt="Integration Model" src="https://github.com/user-attachments/assets/b4e034e4-e835-4f39-b873-3755205344d0" />
 
-🛠️ Technical Overview
-The system ingests data from two different database sources and processes them through three structured layers:
+The **CRM and ERP** systems provide different but related datasets:
+- `crm_sales_details` links to both `crm_prod_info` and `crm_cust_info`
+- Keys from CRM (`prd_key`, `cst_key`) are used to join with ERP tables like:
+  - `erp_px_cat_g1v2`
+  - `erp_cust_az12`
+  - `erp_loc_a101`
 
-🔹 Layer 1 – Raw Layer (Staging) (Bronze)
-Direct ingestion of data as-is from the original sources.
+This design allows the warehouse to **enrich CRM data with ERP context**.
 
-No transformation is applied.
+---
 
-Provides historical backup and full traceability.
+## 🌟 Star Schema
 
-🔹 Layer 2 – Cleaned & Enriched Layer (Silver)
-Data cleaning, standardization, and enrichment.
+<img width="958" height="525" alt="Star Schema" src="https://github.com/user-attachments/assets/e83bc713-ae2f-4ce0-8bba-a4dd4cc80971" />
 
-Unifies column names, formats, types, and resolves inconsistencies.
+The final **Gold layer** is modeled as a **Star Schema**, ideal for reporting and BI tools like Power BI:
 
-Prepares data for semantic consistency and reliability.
+- **Fact Table:** `gold.fact_sales`
+- **Dimensions:**
+  - `gold.dim_customers` — enriched customer info
+  - `gold.dim_products` — current products with category details
 
-🔹 Layer 3 – Business Layer (Gold)
-Business-focused transformations.
+This design enables:
+- Fast slicing/dicing
+- Simple joins
+- Semantic clarity for analysts
 
-Produces analysis-ready data models and aggregates.
+---
 
-Designed for reporting, BI tools, and decision-making.
+## 📤 Data Flow
 
-🎯 Learning Goals
-Understand the layered architecture of a Data Warehouse.
+<img width="988" height="659" alt="Data Flow" src="https://github.com/user-attachments/assets/3db03c32-0a05-4082-942c-2155d4bef0df" />
 
-Practice the Separation of Concerns principle in data workflows.
+This diagram shows how data flows from raw CSVs to final analytical views:
 
-Apply cleaning, normalization, and enrichment techniques.
+1. **Bronze Layer** ingests raw CRM & ERP data
+2. **Silver Layer** applies standardization, formatting, cleansing
+3. **Gold Layer** creates business-facing views using joins and calculations
 
-Deliver data in a format usable by business users and tools.
+---
+
+## 🛠️ Technologies Used
+
+- **SQL Server** (Database Engine)
+- **T-SQL** (for ETL logic, procedures, and views)
+- **Power BI / Queries / ML** (for consumption layer)
+
+---
+
+## ✅ Benefits of This Architecture
+
+- Clear separation of responsibilities per layer
+- Reusable, modular transformations
+- BI-friendly schema (Star)
+- Scalable and auditable data flow
+- Supports both batch ingestion and downstream ML or reporting

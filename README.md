@@ -104,3 +104,11 @@ This project helped me solidify the core principles of modern data architecture 
 Whether the goal is reporting, data science, or business analytics — this warehouse is ready to deliver.
 
 ---
+
+## Credits & Acknowledgments
+
+This project is based on the tutorial:  
+🎥 [Data Warehouse Project with SQL Server | YouTube](https://www.youtube.com/watch?v=9GVqKuTVANE&list=PLNcg_FV9n7qaUWeyUkPfiVtMbKlrfMqA8&index=1&ab_channel=DatawithBaraa)
+
+Special thanks to the creator for the guidance and clear explanation of data warehouse concepts.
+

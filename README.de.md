@@ -9,7 +9,8 @@
 
 Dieses Projekt implementiert ein vollständiges **SQL-basiertes Data Warehouse** mit einer modularen **Drei-Schichten-Architektur** (Bronze, Silber und Gold). Ziel ist es, rohe CRM- und ERP-Daten zu konsolidieren, zu bereinigen und in ein zuverlässiges, analysierbares Modell zu transformieren.
 
-<img width="1160" height="773" alt="High Level Architecture" src="https://github.com/user-attachments/assets/4c308b1f-11f7-46c0-b024-066a728535ed" />
+
+<img width="1143" height="857" alt="deutschArch" src="https://github.com/user-attachments/assets/03d39091-61b1-4dd2-bfa5-0148bf73c5e9" />
 
 
 ### 🟫 Bronze-Schicht – Rohdaten
